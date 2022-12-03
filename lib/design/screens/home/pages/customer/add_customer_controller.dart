@@ -24,7 +24,7 @@ class AddCustomerController extends GetxController {
           email: customerEmailController.text.trim(),
           mobileNo: customerMobileController.text.trim(),
         );
-        Box<Customer> customersBox = await Hive.openBox<Customer>("customers");
+        Box<Customer> customersBox = Hive.box<Customer>("customers");
         await customersBox.put(id, customer);
         Get.back();
         "Customer has been added !".successSnackbar();

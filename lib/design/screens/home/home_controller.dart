@@ -13,6 +13,10 @@ class HomeController extends GetxController {
       await Get.toNamed(Routes.ADD_CUSTOMER);
     } else if (selectedSegment.value == Segments.item) {
       await Get.toNamed(Routes.ADD_ITEM);
+    } else if (selectedSegment.value == Segments.invoice) {
+      await Get.toNamed(Routes.ADD_INVOICE);
+    } else {
+      await Get.toNamed(Routes.UNKNOW_404);
     }
   }
 

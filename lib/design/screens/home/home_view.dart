@@ -1,6 +1,8 @@
 import 'package:alvish_nesscale_assignment/design/screens/home/home_controller.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/customer/customer_view.dart';
+import 'package:alvish_nesscale_assignment/design/screens/home/pages/invoice/invoice_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/item/item_view.dart';
+import 'package:alvish_nesscale_assignment/design/screens/unknown_404_view.dart';
 import 'package:alvish_nesscale_assignment/design/utils/design_utils.dart';
 import 'package:alvish_nesscale_assignment/utils/enum.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,9 +17,15 @@ class HomeView extends GetWidget<HomeController> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        leading: Text(
-          'Alvish Nesscale',
-          style: TextThemeX.text16,
+        leading: Row(
+          children: [
+            const Icon(CupertinoIcons.person_alt_circle, color: lPrimaryColor),
+            const SizedBox(width: 5),
+            Text(
+              'Alvish',
+              style: TextThemeX.text16.copyWith(color: lPrimaryColor),
+            ),
+          ],
         ),
         trailing: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -69,11 +77,14 @@ class HomeView extends GetWidget<HomeController> {
             const SizedBox(height: 20),
             Expanded(
               child: Obx(
-                  () => controller.selectedSegment.value == Segments.customer
-                      ? const CustomerView()
-                      : controller.selectedSegment.value == Segments.item
-                          ? const ItemView()
-                          : Container()),
+                () => controller.selectedSegment.value == Segments.customer
+                    ? const CustomerView()
+                    : controller.selectedSegment.value == Segments.item
+                        ? const ItemView()
+                        : controller.selectedSegment.value == Segments.invoice
+                            ? const InvoiceView()
+                            : const Unknown404View(),
+              ),
             ),
           ],
         ),

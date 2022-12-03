@@ -4,26 +4,7 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class ItemController extends GetxController {
-  late Box<Item> itemBox;
-  RxBool isLoading = false.obs;
-
-  @override
-  void onInit() {
-    super.onInit();
-    init();
-  }
-
-  @override
-  void onClose() {
-    itemBox.close();
-    super.onClose();
-  }
-
-  Future<void> init() async {
-    isLoading.value = true;
-    itemBox = await Hive.openBox<Item>("items");
-    isLoading.value = false;
-  }
+  Box<Item> itemBox = Hive.box<Item>("items");
 
   Future<void> removeItem(Item? item) async {
     if (item == null) return;

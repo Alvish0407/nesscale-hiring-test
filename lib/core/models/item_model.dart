@@ -45,3 +45,29 @@ class Item {
     );
   }
 }
+
+@HiveType(typeId: 3)
+class OrderedItem {
+  @HiveField(0)
+  final String itemId;
+  @HiveField(1)
+  int quantity;
+
+  OrderedItem({
+    required this.itemId,
+    required this.quantity,
+  });
+
+  @override
+  String toString() => 'OrderedItem(itemId: $itemId, quantity: $quantity)';
+
+  OrderedItem copyWith({
+    String? itemId,
+    int? quantity,
+  }) {
+    return OrderedItem(
+      itemId: itemId ?? this.itemId,
+      quantity: quantity ?? this.quantity,
+    );
+  }
+}

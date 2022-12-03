@@ -1,8 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:alvish_nesscale_assignment/core/models/customer_model.dart';
+import 'package:alvish_nesscale_assignment/core/models/invoice_model.dart';
+import 'package:alvish_nesscale_assignment/core/models/item_model.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/home_controller.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/home_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/customer/add_customer_controller.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/customer/add_customer_view.dart';
+import 'package:alvish_nesscale_assignment/design/screens/home/pages/invoice/add_invoice_controller.dart';
+import 'package:alvish_nesscale_assignment/design/screens/home/pages/invoice/add_invoice_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/item/add_item_controller.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/item/add_item_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/startup/signin/signin_controller.dart';
@@ -12,6 +17,7 @@ import 'package:alvish_nesscale_assignment/design/screens/startup/splash/splash_
 import 'package:alvish_nesscale_assignment/design/screens/unknown_404_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/instance_manager.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 part 'app_routes.dart';
 
@@ -49,6 +55,11 @@ class AppPages {
           page: () => const AddItemView(),
           binding: BindingsX._addItemBindings(),
         ),
+        GetPage(
+          name: _Paths.ADD_INVOICE,
+          page: () => const AddInvoiceView(),
+          binding: BindingsX._addInvoiceBindings(),
+        ),
       ],
       binding: BindingsX._homeBindings(),
     ),
@@ -57,7 +68,11 @@ class AppPages {
 
 class BindingsX {
   static BindingsBuilder initialBindigs() {
-    return BindingsBuilder(() {});
+    return BindingsBuilder(() async {
+      await Hive.openBox<Customer>("customers");
+      await Hive.openBox<Item>("items");
+      await Hive.openBox<Invoice>("invoices");
+    });
   }
 
   static BindingsBuilder<dynamic> _signInBindings() {
@@ -96,6 +111,14 @@ class BindingsX {
     return BindingsBuilder(() {
       Get.lazyPut<AddItemController>(
         () => AddItemController(),
+      );
+    });
+  }
+
+  static BindingsBuilder<dynamic> _addInvoiceBindings() {
+    return BindingsBuilder(() {
+      Get.lazyPut<AddInvoiceController>(
+        () => AddInvoiceController(),
       );
     });
   }

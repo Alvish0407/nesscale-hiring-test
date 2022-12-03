@@ -24,7 +24,7 @@ class AddItemController extends GetxController {
           code: itemCodeController.text.trim(),
           rate: double.parse(itemRateController.text.trim()),
         );
-        Box<Item> itemsBox = await Hive.openBox<Item>("items");
+        Box<Item> itemsBox = Hive.box<Item>("items");
         await itemsBox.put(id, item);
         Get.back();
         "Item has been added !".successSnackbar();

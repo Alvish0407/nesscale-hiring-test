@@ -13,6 +13,7 @@ abstract class Routes {
 
   static const ADD_CUSTOMER = HOME + _Paths.ADD_CUSTOMER;
   static const ADD_ITEM = HOME + _Paths.ADD_ITEM;
+  static const ADD_INVOICE = HOME + _Paths.ADD_INVOICE;
 }
 
 // !co == clerk-officer
@@ -26,4 +27,5 @@ abstract class _Paths {
   static const HOME = '/home';
   static const ADD_CUSTOMER = '/add-customer';
   static const ADD_ITEM = '/add-item';
+  static const ADD_INVOICE = '/add-invoice';
 }
