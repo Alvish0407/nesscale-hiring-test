@@ -62,7 +62,7 @@ class CFlatButton extends StatelessWidget {
                         letterSpacing: 1,
                         fontWeight: FontWeight.w600,
                         fontFamily: getPoppinsFontFamily,
-                        color: textColor ?? lPrimaryTextColor,
+                        color: textColor ?? pureWhiteColor,
                       ),
                     ),
             ],

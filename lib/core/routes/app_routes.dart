@@ -10,6 +10,9 @@ abstract class Routes {
   static const SPLASH = _Paths.SPLASH;
   static const SIGNIN = _Paths.SIGNIN;
   static const HOME = _Paths.HOME;
+
+  static const ADD_CUSTOMER = HOME + _Paths.ADD_CUSTOMER;
+  static const ADD_ITEM = HOME + _Paths.ADD_ITEM;
 }
 
 // !co == clerk-officer
@@ -21,4 +24,6 @@ abstract class _Paths {
   static const SIGNIN = '/sign-in';
 
   static const HOME = '/home';
+  static const ADD_CUSTOMER = '/add-customer';
+  static const ADD_ITEM = '/add-item';
 }

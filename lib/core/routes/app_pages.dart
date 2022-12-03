@@ -1,6 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:alvish_nesscale_assignment/design/screens/home/home_controller.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/home_view.dart';
+import 'package:alvish_nesscale_assignment/design/screens/home/pages/customer/add_customer_controller.dart';
+import 'package:alvish_nesscale_assignment/design/screens/home/pages/customer/add_customer_view.dart';
+import 'package:alvish_nesscale_assignment/design/screens/home/pages/item/add_item_controller.dart';
+import 'package:alvish_nesscale_assignment/design/screens/home/pages/item/add_item_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/startup/signin/signin_controller.dart';
 import 'package:alvish_nesscale_assignment/design/screens/startup/signin/signin_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/startup/splash/splash_controller.dart';
@@ -34,6 +38,18 @@ class AppPages {
     GetPage(
       name: _Paths.HOME,
       page: () => const HomeView(),
+      children: [
+        GetPage(
+          name: _Paths.ADD_CUSTOMER,
+          page: () => const AddCustomerView(),
+          binding: BindingsX._addCustomerBindings(),
+        ),
+        GetPage(
+          name: _Paths.ADD_ITEM,
+          page: () => const AddItemView(),
+          binding: BindingsX._addItemBindings(),
+        ),
+      ],
       binding: BindingsX._homeBindings(),
     ),
   ];
@@ -64,6 +80,22 @@ class BindingsX {
     return BindingsBuilder(() {
       Get.lazyPut<HomeController>(
         () => HomeController(),
+      );
+    });
+  }
+
+  static BindingsBuilder<dynamic> _addCustomerBindings() {
+    return BindingsBuilder(() {
+      Get.lazyPut<AddCustomerController>(
+        () => AddCustomerController(),
+      );
+    });
+  }
+
+  static BindingsBuilder<dynamic> _addItemBindings() {
+    return BindingsBuilder(() {
+      Get.lazyPut<AddItemController>(
+        () => AddItemController(),
       );
     });
   }

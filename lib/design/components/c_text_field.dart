@@ -104,8 +104,8 @@ class _CTextFieldState extends State<CTextField> {
                 suffixText: widget.suffixText,
                 helperText: widget.helperText,
                 helperStyle: TextThemeX.text10.copyWith(color: lPrimaryColor),
-                suffixStyle:
-                    TextThemeX.text17.copyWith(fontWeight: FontWeight.w600),
+                suffixStyle: TextThemeX.text17
+                    .copyWith(fontWeight: FontWeight.w600, fontSize: 13),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: borderRadius,
                   borderSide: BorderSide(

@@ -1,5 +1,6 @@
 import 'package:alvish_nesscale_assignment/core/routes/app_pages.dart';
 import 'package:alvish_nesscale_assignment/core/services/gs_services.dart';
+import 'package:alvish_nesscale_assignment/core/services/hive_db.dart';
 import 'package:alvish_nesscale_assignment/design/components/unfocus_wrapper.dart';
 import 'package:alvish_nesscale_assignment/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -13,6 +14,8 @@ void main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await GSServices.initialize();
+  await HiveDB().initHive();
+
   runApp(const MyApp());
 }
 

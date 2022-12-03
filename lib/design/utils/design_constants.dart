@@ -11,7 +11,7 @@ const String iconPath = 'assets/icons';
 const String imagePath = 'assets/images';
 
 const ScrollPhysics defaultPhysics = BouncingScrollPhysics(
-  parent: FixedExtentScrollPhysics(),
+  parent: AlwaysScrollableScrollPhysics(),
 );
 
 const ScrollPhysics neverScrollablePhysics = NeverScrollableScrollPhysics();
