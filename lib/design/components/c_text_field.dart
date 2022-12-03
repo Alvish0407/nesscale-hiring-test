@@ -51,7 +51,6 @@ class _CTextFieldState extends State<CTextField> {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Fix the design
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

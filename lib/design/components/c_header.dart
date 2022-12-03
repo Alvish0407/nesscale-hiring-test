@@ -7,8 +7,8 @@ import 'package:get/route_manager.dart';
 
 class CHeader extends StatelessWidget implements PreferredSizeWidget {
   final String? text;
-  final Widget? child;
-  const CHeader({Key? key, this.text, this.child}) : super(key: key);
+  final List<Widget>? actions;
+  const CHeader({Key? key, this.text, this.actions}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +19,7 @@ class CHeader extends StatelessWidget implements PreferredSizeWidget {
         ),
         elevation: 0,
         centerTitle: true,
+        actions: actions,
         backgroundColor: lPrimaryColor,
         leading: (navigator?.canPop() ?? false)
             ? CCoreButton(

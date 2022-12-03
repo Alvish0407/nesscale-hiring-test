@@ -25,7 +25,6 @@ class AuthValidator {
     String? value, {
     String? errorMessage = "required!",
   }) {
-    // TODO: Add Extra Validation If Needed
     if (value?.trim().isEmpty ?? true) return errorMessage;
 
     return null;

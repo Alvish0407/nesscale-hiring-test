@@ -18,7 +18,6 @@ class SplashController extends GetxController {
 
   Future<void> checkUserSignedIn() async {
     // ?Authenticated through local(GS) User
-    // TODO: Check if user is authenticated through firebase user(previously it returns null on web)
     User? currentFirebaseUser = _authProvider.getCurrentFirebaseUser();
     Map? currentLocalUser = GSServices.getCurrentUserData();
 

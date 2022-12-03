@@ -1,3 +1,5 @@
+import 'package:alvish_nesscale_assignment/core/routes/app_pages.dart';
+import 'package:alvish_nesscale_assignment/design/components/c_core_button.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/home_controller.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/customer/customer_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/invoice/invoice_view.dart';
@@ -7,8 +9,7 @@ import 'package:alvish_nesscale_assignment/design/utils/design_utils.dart';
 import 'package:alvish_nesscale_assignment/utils/enum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get/get_utils/src/extensions/export.dart';
+import 'package:get/get.dart';
 
 class HomeView extends GetWidget<HomeController> {
   const HomeView({super.key});
@@ -17,33 +18,27 @@ class HomeView extends GetWidget<HomeController> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        leading: Row(
-          children: [
-            const Icon(CupertinoIcons.person_alt_circle, color: lPrimaryColor),
-            const SizedBox(width: 5),
-            Text(
-              'Alvish',
-              style: TextThemeX.text16.copyWith(color: lPrimaryColor),
-            ),
-          ],
-        ),
-        trailing: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            CupertinoButton(
-              padding: EdgeInsets.zero,
-              onPressed: controller.add,
-              child: const Text('Add'),
-            ),
-            CupertinoButton(
-              padding: const EdgeInsets.only(left: 10),
-              onPressed: controller.logOut,
-              child: Text(
-                'LogOut',
-                style: TextThemeX.text16.copyWith(color: redColor),
+        leading: CCoreButton(
+          onPressed: () => Get.toNamed(Routes.PROFILE),
+          child: Row(
+            children: [
+              const Icon(
+                CupertinoIcons.person_alt_circle,
+                size: 30,
+                color: lPrimaryColor,
               ),
-            ),
-          ],
+              const SizedBox(width: 5),
+              Text(
+                'Alvish',
+                style: TextThemeX.text16.copyWith(color: lPrimaryColor),
+              ),
+            ],
+          ),
+        ),
+        trailing: CupertinoButton(
+          padding: EdgeInsets.zero,
+          onPressed: controller.add,
+          child: const Text('Add'),
         ),
       ),
       child: Material(

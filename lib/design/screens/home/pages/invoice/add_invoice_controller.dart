@@ -27,7 +27,9 @@ class AddInvoiceController extends GetxController {
     customers =
         customerBox.values.where((customer) => !customer.isDeleted).toList();
     items = itemBox.values.where((item) => !item.isDeleted).toList();
-    selectedCustomerId = customerBox.values.first.customerId;
+    if (customers.isNotEmpty) {
+      selectedCustomerId = customers.first.customerId;
+    }
   }
 
   void incrementQuantity(Item item) async {

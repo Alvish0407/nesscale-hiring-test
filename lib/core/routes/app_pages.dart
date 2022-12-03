@@ -10,6 +10,8 @@ import 'package:alvish_nesscale_assignment/design/screens/home/pages/invoice/add
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/invoice/add_invoice_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/item/add_item_controller.dart';
 import 'package:alvish_nesscale_assignment/design/screens/home/pages/item/add_item_view.dart';
+import 'package:alvish_nesscale_assignment/design/screens/profile/profile_controller.dart';
+import 'package:alvish_nesscale_assignment/design/screens/profile/profile_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/startup/signin/signin_controller.dart';
 import 'package:alvish_nesscale_assignment/design/screens/startup/signin/signin_view.dart';
 import 'package:alvish_nesscale_assignment/design/screens/startup/splash/splash_controller.dart';
@@ -59,6 +61,11 @@ class AppPages {
           name: _Paths.ADD_INVOICE,
           page: () => const AddInvoiceView(),
           binding: BindingsX._addInvoiceBindings(),
+        ),
+        GetPage(
+          name: _Paths.PROFILE,
+          page: () => const ProfileView(),
+          binding: BindingsX._profileBindings(),
         ),
       ],
       binding: BindingsX._homeBindings(),
@@ -119,6 +126,14 @@ class BindingsX {
     return BindingsBuilder(() {
       Get.lazyPut<AddInvoiceController>(
         () => AddInvoiceController(),
+      );
+    });
+  }
+
+  static BindingsBuilder<dynamic> _profileBindings() {
+    return BindingsBuilder(() {
+      Get.lazyPut<ProfileController>(
+        () => ProfileController(),
       );
     });
   }
